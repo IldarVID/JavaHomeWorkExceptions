@@ -1,6 +1,8 @@
 package ru.netology.services;
 
 
+import java.util.Objects;
+
 public class Product {
     protected int id;
     protected String title;
@@ -11,6 +13,9 @@ public class Product {
         this.title = title;
         this.price = price;
     }
+    public int getId() {
+        return id;
+    }
 
     // Вспомогательные методы для корректной работы equals
     @Override
@@ -18,7 +23,9 @@ public class Product {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Product product = (Product) o;
-        return id == product.id && price == product.price && title.equals(product.title);
+        return id == product.id
+                && price == product.price
+                && title.equals(product.title);
     }
 
     @Override
